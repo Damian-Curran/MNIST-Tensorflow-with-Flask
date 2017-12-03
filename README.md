@@ -24,3 +24,11 @@ Theses parts are:
 * Number of Labels
 
 The rest of the Label file holds the bytes for 60,000(10,000 for test) Labels.
+
+## Using this repository
+
+git clone https://github.com/Damian404/MNIST-Tensorflow-with-Flask.git
+
+open your command console, navigate into the folder and type these commands:
+* set FLASK_APP=app.py
+* flask run
