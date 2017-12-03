@@ -1,4 +1,4 @@
-import os
+import os, PIL
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
@@ -13,7 +13,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET', 'POST'])
-def upload_file():
+def upload():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -28,6 +28,15 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            
+            filepath = "static/" + filename
+
+            basewidth = 28
+            img = Image.open(filepath)
+            wpercent = (basewidth / float(img.size[0]))
+            hsize = int((float(img.size[1]) * float(wpercent)))
+            img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
+            img.save('static/resized_image.png')
+
+            return render_template('index.html', number_name = filename)
     return render_template('index.html')
