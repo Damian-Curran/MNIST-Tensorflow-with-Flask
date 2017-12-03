@@ -25,6 +25,22 @@ Theses parts are:
 
 The rest of the Label file holds the bytes for 60,000(10,000 for test) Labels.
 
+## Installing needed technologies
+
+You'll will first need to install Python, this can be done by following this link and its instructions, install Python 3 [Pyton Install](https://www.howtogeek.com/197947/how-to-install-python-on-windows/)
+Make sure Python is in your enviroment variables path.
+To check if Python installed properly, open your cmd and type "Python".
+
+You should then install the Tensorflow library, this is done by opening your cmd and typing "pip3 install --upgrade tensorflow" for the CPU-only version and "pip3 install --upgrade tensorflow-gpu" for the GPU version.
+
+You will need the numpy library too, to do so, open your cmd and enter "pip install numpy"
+
+If you want to run the Jupyter Notebook by its self you'll also have to install it using: pip3 install jupyter
+
+Installing FLask: pip install Flask
+
+Installing PIL: sudo pip install pillow
+
 ## Using this repository
 
 git clone https://github.com/Damian404/MNIST-Tensorflow-with-Flask.git
