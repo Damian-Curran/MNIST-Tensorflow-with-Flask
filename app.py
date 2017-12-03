@@ -20,15 +20,15 @@ def allowed_file(filename):
 def upload():
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
+        if request.files['file'].filename == '':
+            typeError = 'No selected file'
+            return render_template('index.html', error = typeError)
         file = request.files['file']
         # if user does not select file, browser also
         # submit a empty part without filename
         if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
+            typeError = 'No selected file'
+            return render_template('index.html', error = typeError)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -45,6 +45,10 @@ def upload():
             wpercent = (basewidth / float(img.size[0]))
             hsize = int((float(img.size[1]) * float(wpercent)))
             img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
+
+            # convert image to black and white
+            img = img.convert('L') 
+
             #all images are overwritted by the previous as "resized_image.png"
             img.save('static/resized_image.png')
 
