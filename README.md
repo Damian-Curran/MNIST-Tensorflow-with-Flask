@@ -1,5 +1,10 @@
 # MNIST-Tensorflow-with-Flask
 
+In this repository we will be taking a look at the MNIST data set and investigating its different aspects while using it to train a model in Tensorflow and launching it as a webapp.
+
+TensorFlow is a Python library for fast numerical computing created and released by Google. 
+It is a foundation library that can be used to create Deep Learning models directly or by using wrapper libraries that simplify the process built on top of TensorFlow.
+
 ## MNIST Data Set
 
 There are 4 different files. Two training and two test files, both are layed out in the same way.
