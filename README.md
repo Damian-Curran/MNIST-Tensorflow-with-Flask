@@ -25,6 +25,9 @@ Theses parts are:
 
 The rest of the Label file holds the bytes for 60,000(10,000 for test) Labels.
 
+An image of how softmax in tensorflow works.
+![](Images/softmaxModel.png)
+
 ## Installing needed technologies
 
 You'll will first need to install Python, this can be done by following this link and its instructions, install Python 3 [Pyton Install](https://www.howtogeek.com/197947/how-to-install-python-on-windows/)
