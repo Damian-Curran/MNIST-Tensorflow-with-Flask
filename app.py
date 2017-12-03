@@ -12,6 +12,10 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+#image in flask to html page: https://stackoverflow.com/questions/11262518/how-to-pass-uploaded-image-to-template-html-in-flask
+#using another .py file: https://stackoverflow.com/questions/13034496/using-global-variables-between-files
+# reading bytes from image: https://stackoverflow.com/questions/6787233/python-how-to-read-bytes-from-file-and-save-it
+
 @app.route('/', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':

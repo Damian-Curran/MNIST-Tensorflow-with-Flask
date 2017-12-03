@@ -86,6 +86,7 @@ y_pred_int = tf.argmax(y_pred, axis=1)
 
 #can seperate out softmax and cross_entropy
 #using this function is more accurate, and less lines of code
+#tf.nn.softmax VS tf.nn.softmax_cross_entropy_with_logits https://stackoverflow.com/questions/34240703/difference-between-tensorflow-tf-nn-softmax-and-tf-nn-softmax-cross-entropy-with
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=model,
                                                         labels=y)
 #computes the mean of elements across a tensor
@@ -103,6 +104,7 @@ y_value = y_pred_int
 
 #every tensorflow program uses an optimizer, the most used one is GradientDescent
 #https://www.tensorflow.org/api_docs/python/tf/train/GradientDescentOptimizer
+#searching for best learning rate: https://stackoverflow.com/questions/43851215/optimise-tensorflow-learning-rate
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.00001)
 train = optimizer.minimize(cost)
 
