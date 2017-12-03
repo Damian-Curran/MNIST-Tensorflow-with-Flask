@@ -1,7 +1,24 @@
 <!doctype html>
-<title>Upload new File</title>
-<h1>Upload new File</h1>
-<form method=post enctype=multipart/form-data>
-  <p><input type=file name=file>
-     <input type=submit value=Upload>
-</form>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <form method=post enctype=multipart/form-data>
+      <div class="card">
+          <div class="h2">
+            <h2>Handwritten Image Classifier</h2>
+          </div>
+          <div>
+            <p><input type=file name=file></p>
+          </div>
+          <div>
+            <p><input type=submit value=Upload></p>
+          </div>
+          <div>
+            <img src="{{url_for('static', filename=number_name)}}" height="200" width="200" alt="">
+          </div>
+        </div>
+    </form>
+  </div>
