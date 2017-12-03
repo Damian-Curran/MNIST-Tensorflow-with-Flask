@@ -1,4 +1,4 @@
-import os, PIL
+import os, gzip, PIL
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
@@ -37,6 +37,18 @@ def upload():
             hsize = int((float(img.size[1]) * float(wpercent)))
             img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
             img.save('static/resized_image.png')
+
+            with open('static/resized_image.png', 'rb') as f:           
+                images = []
+                
+                for i in range(1):
+                    row = []
+                    for k in range(28):
+                        col = []
+                        for j in range(28):
+                            col.append(int.from_bytes(f.read(1), "big"))
+                        row.extend(col)
+                    images.append(row)
 
             return render_template('index.html', number_name = filename)
     return render_template('index.html')
