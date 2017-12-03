@@ -52,5 +52,5 @@ def upload():
             predNum = trainModel.setImage(images)
             true_number = "Image predicted to be a: " + str(predNum)
 
-            return render_template('index.html', number_name = filename)
+            return render_template('index.html', number_name = filename, number = true_number))
     return render_template('index.html')
