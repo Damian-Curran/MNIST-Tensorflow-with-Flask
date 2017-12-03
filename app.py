@@ -1,4 +1,4 @@
-import os, gzip, PIL
+import os, gzip, PIL, trainModel
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
@@ -49,6 +49,8 @@ def upload():
                             col.append(int.from_bytes(f.read(1), "big"))
                         row.extend(col)
                     images.append(row)
+            predNum = trainModel.setImage(images)
+            true_number = "Image predicted to be a: " + str(predNum)
 
             return render_template('index.html', number_name = filename)
     return render_template('index.html')
