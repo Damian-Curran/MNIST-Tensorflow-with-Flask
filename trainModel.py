@@ -2,6 +2,8 @@ import gzip
 import numpy as np 
 import tensorflow as tf
 
+# Adapted from: https://github.com/emerging-technologies/keras-iris and https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#5
+
 #function which reads labels when fed file path and returns 1d array
 def labelss(filepath):
         with gzip.open(filepath, 'rb') as f:

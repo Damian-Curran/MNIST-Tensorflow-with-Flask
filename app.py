@@ -33,15 +33,22 @@ def upload():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
+            #creates path by combining folder with filename
             filepath = "static/" + filename
 
+            #sets width of image conversion
             basewidth = 28
+            #open image
             img = Image.open(filepath)
+            
+            #set of calculations to convert from current iamge size to 28x28
             wpercent = (basewidth / float(img.size[0]))
             hsize = int((float(img.size[1]) * float(wpercent)))
             img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
+            #all images are overwritted by the previous as "resized_image.png"
             img.save('static/resized_image.png')
 
+            #this file reader has same intention as reader in trainModel
             with open('static/resized_image.png', 'rb') as f:           
                 images = []
                 
@@ -53,8 +60,11 @@ def upload():
                             col.append(int.from_bytes(f.read(1), "big"))
                         row.extend(col)
                     images.append(row)
+            #calls function in trainModel and feeds it image read
             predNum = trainModel.setImage(images)
+            #returned number from setImage to be printed to screen
             true_number = "Image predicted to be a: " + str(predNum)
 
+            #returns html page with values to present image and predicated value int convereted to string
             return render_template('index.html', number_name = filename, number = true_number))
     return render_template('index.html')
