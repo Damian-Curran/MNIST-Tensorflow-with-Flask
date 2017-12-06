@@ -34,15 +34,15 @@ You'll will first need to install Python, this can be done by following this lin
 Make sure Python is in your enviroment variables path.
 To check if Python installed properly, open your cmd and type "Python".
 
-You should then install the Tensorflow library, this is done by opening your cmd and typing "pip3 install --upgrade tensorflow" for the CPU-only version and "pip3 install --upgrade tensorflow-gpu" for the GPU version.
+You should then install the Tensorflow library, this is done by opening your cmd and typing "pip install --upgrade tensorflow" for the CPU-only version and "pip install --upgrade tensorflow-gpu" for the GPU version.
 
 You will need the numpy library too, to do so, open your cmd and enter "pip install numpy"
 
-If you want to run the Jupyter Notebook by its self you'll also have to install it using: pip3 install jupyter
+If you want to run the Jupyter Notebook by its self you'll also have to install it using: pip install jupyter
 
 Installing FLask: pip install Flask
 
-Installing PIL: sudo pip install pillow
+Installing PIL: pip install pillow
 
 ## Using this repository
 
