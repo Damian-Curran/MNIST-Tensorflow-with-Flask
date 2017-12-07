@@ -70,5 +70,5 @@ def upload():
             true_number = "Image predicted to be a: " + str(predNum)
 
             #returns html page with values to present image and predicated value int convereted to string
-            return render_template('index.html', number_name = filename, number = true_number))
+            return render_template('index.html', number_name = filename, number = true_number)
     return render_template('index.html')
