@@ -60,8 +60,8 @@ train_Images = imagess("C:\\Users\\Damian Curran\\Desktop\\mnist\\train-images.g
 depth = 10
 
 #converts to one_hot vector using numpy
+train_Labels_notHot = np.array(train_Labels)
 train_Labels_hot = np.eye(depth)[train_Labels_notHot]
-
 
 #These are changed to pythons liking to more accurately adjust towards the correct output
 w = tf.Variable(tf.zeros([784, 10]))
