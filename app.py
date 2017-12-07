@@ -1,6 +1,7 @@
 import os, gzip, PIL, trainModel
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
+from PIL import Image
 
 UPLOAD_FOLDER = './static'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
